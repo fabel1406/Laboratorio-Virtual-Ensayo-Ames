@@ -76,9 +76,10 @@ const Quiz: React.FC<QuizProps> = ({ addScore, onComplete }) => {
             key={index}
             onClick={() => handleAnswerSelect(index)}
             disabled={showFeedback}
-            className={`p-4 rounded-lg text-left transition-all duration-300 border-2 ${getButtonClass(index)} ${!showFeedback ? 'cursor-pointer' : 'cursor-default'}`}
+            className={`p-4 rounded-lg text-left transition-all duration-300 border-2 flex items-start ${getButtonClass(index)} ${!showFeedback ? 'cursor-pointer' : 'cursor-default'}`}
           >
-            {option}
+            <span className="font-bold mr-3">{String.fromCharCode(65 + index)}.</span>
+            <span>{option}</span>
           </button>
         ))}
       </div>

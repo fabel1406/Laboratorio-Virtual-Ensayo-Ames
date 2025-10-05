@@ -45,14 +45,15 @@ const VirtualLab: React.FC<VirtualLabProps> = ({ addScore, onComplete }) => {
         <h3 className="text-2xl font-bold text-green-400 text-center mb-2">{title}</h3>
         <p className="text-slate-400 text-center mb-6">{question}</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {choices.map(choice => (
+            {choices.map((choice, index) => (
                 <button 
                     key={choice.id}
                     onClick={() => handleChoice(choice, correctId, points, nextStep)}
                     disabled={!!feedback}
-                    className="p-6 bg-slate-700 rounded-lg text-center hover:bg-slate-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="p-6 bg-slate-700 rounded-lg text-center hover:bg-slate-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex flex-col items-center justify-center h-40"
                 >
-                    {choice.text}
+                    <span className="text-3xl font-bold mb-2 text-cyan-400">{String.fromCharCode(65 + index)}</span>
+                    <span className="text-slate-300">{choice.text}</span>
                 </button>
             ))}
         </div>
